@@ -32,16 +32,33 @@ public class UserServices {
 			Logging.logger.warn("Username created that already exists in the database");
 			throw new UserNameNotAvailable();
 		}
-		//u = uDao.getUserByUsername(u.getUsername());
+		 
 		
 		return u;
 	}
 	
+	public User login (String username, String password) throws UserDoesNotExistException, InvalidCredentialsException{
+		
+		User u = uDao.getUserByUsername(username);
+		
+		if(u.getId() == 0) {
+			Logging.logger.warn("User does not exist");
+			throw new UserDoesNotExistException();
+		}
+		else if(!u.getPassword().equals(password)) {
+			Logging.logger.warn("User tried to login with invalid credentials");
+			throw new InvalidCredentialsException();
+		}
+		else {
+			Logging.logger.info("You have successfully logged in.");
+			
+			return u;
+		}
+	}
+	
+	
 }
-
-
-//	
-//	
+	
 //	public void signUp() throws UserNameNotAvailable {
 //		//System.out.println("What kind of account would you like to open? CHECKING or SAVINGS!");
 //		String acctType= in.nextLine().toUpperCase();

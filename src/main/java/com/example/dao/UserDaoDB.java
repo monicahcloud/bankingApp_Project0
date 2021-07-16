@@ -28,7 +28,7 @@ public class UserDaoDB implements UserDao{
 			
 			//We need to create a statement with this sql string
 			PreparedStatement ps = con.prepareStatement(sql);
-			ResultSet rs = ps.executeQuery(sql);
+			ResultSet rs = ps.executeQuery();
 	
 			while(rs.next()) {
 				userList.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(5), rs.getString(4), rs.getString(6)));
@@ -55,7 +55,7 @@ public class UserDaoDB implements UserDao{
 			String sql = "SELECT * FROM users WHERE users.username = '" + username + "'";
 			
 			PreparedStatement ps = con.prepareStatement(sql);
-			ResultSet rs = ps.executeQuery(sql);
+			ResultSet rs = ps.executeQuery();
 			
 			while(rs.next()) {
 				user.setId(rs.getInt(1));
@@ -72,7 +72,7 @@ public class UserDaoDB implements UserDao{
 			e.printStackTrace();
 		}
 		
-		return null;
+		return user;
 	}
 	
 	//Prepared Statements for creating a user

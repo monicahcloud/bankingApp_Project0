@@ -1,0 +1,2 @@
+2021-07-16 14:36:28 WARN  Logging:32 - Username created that already exists in the database
+2021-07-16 14:36:48 INFO  Logging:29 - New user has registered

@@ -1,0 +1,1 @@
+2021-07-16 14:39:35 INFO  Logging:29 - New user has registered

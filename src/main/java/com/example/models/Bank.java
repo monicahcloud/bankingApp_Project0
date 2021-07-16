@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Bank {
 	
-	private List<Customer> customers = new ArrayList<Customer>(); 
+	private List<User> customers = new ArrayList<User>(); 
 	
 	private List<Employee> employees = new ArrayList<Employee>(); 
 	
@@ -28,10 +28,10 @@ public class Bank {
 	 * @param userType
 	 * @return
 	 */
-	public Customer addCustomer(int id, String firstName, String lastName, String email, String username, String password, String userType) {
+	public User addCustomer(int id, String firstName, String lastName, String email, String username, String password, String userType) {
 		
 		//create a new customer object and add it to the bank list
-		Customer newCust = new Customer(id, firstName, lastName, email, username, password, userType);
+		User newCust = new User(id, firstName, lastName, email, username, password);
 		this.customers.add(newCust);
 		
 		//create a savings account for the user customer
@@ -44,11 +44,11 @@ public class Bank {
 				return newCust;
 	}
 
-	public List<Customer> getCustomers() {
+	public List<User> getCustomers() {
 		return customers;
 	}
 
-	public void setCustomers(List<Customer> customers) {
+	public void setCustomers(List<User> customers) {
 		this.customers = customers;
 	}
 

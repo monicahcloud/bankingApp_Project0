@@ -1,107 +1,57 @@
 package com.example.models;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Account {
-
-	/**
-	 * The name of the account: checking or savings
-	 */
-	private String name;
+	private int acctNumber;
+	private User custID;
+	private double openingBalance;
+	private String acctType;
 	
-	/**
-	 * The current balance of the account
-	 */
+	public Account() {}
 	
-	private double acctBalance;
-	
-	/**
-	 * The account number 
-	 */
-	
-	private int accountNum;
-	
-	/**
-	 * The Customer object that owns this account
-	 */
-	private Customer owner;
-	
-	/**
-	 * The list of transactions for this account
-	 */
-	private ArrayList<Transactions> transactions;
-	
-	//Constructors
-	
-	/*
-	 * Create a new account
-	 */
-	
-	public Account(String acctName, Customer acctOwner, double balance, Bank bank) {
-		this.name = acctName;
-		this.owner = acctOwner;
-		this.setAcctNum(Math.abs(ThreadLocalRandom.current().nextInt()));
-		acctBalance = balance;
+	public Account(int acctNumber, User custID, double openingBalance, String acctType) {
 		
+		this.setAcctNumber(Math.abs(ThreadLocalRandom.current().nextInt()));;
+		this.custID = custID;
+		this.openingBalance = openingBalance;
+		this.acctType = acctType;
 	}
 
-	public Account(String string, Customer newCust, Bank bank) {
-		// TODO Auto-generated constructor stub
-	}
 
 	//Getters and Setters
-	public String getName() {
-		return name;
+	public int getAcctNumber() {
+		return acctNumber;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setAcctNumber(int acctNumber) {
+		this.acctNumber = acctNumber;
 	}
 
-	public double getBalance() {
-		return acctBalance;
+	public User getCustID() {
+		return custID;
 	}
 
-	public void setBalance(double balance) {
-		acctBalance = balance;
+	public void setCustID(User custID) {
+		this.custID = custID;
 	}
 
-	public int getAcctNum() {
-		return accountNum;
+	public double getOpeningBalance() {
+		return openingBalance;
 	}
 
-	public void setAcctNum(int i) {
-		this.accountNum = i;
+	public void setOpeningBalance(double openingBalance) {
+		this.openingBalance = openingBalance;
 	}
 
-	public Customer getOwner() {
-		return owner;
+ 
+	public String getAcctType() {
+		return acctType;
 	}
 
-	public void setOwner(Customer owner) {
-		this.owner = owner;
+	public void setAcctType(String acctType) {
+		this.acctType = acctType;
 	}
-
-	public ArrayList<Transactions> getTransactions() {
-		return transactions;
-	}
-
-	public void setTransactions(ArrayList<Transactions> transactions) {
-		this.transactions = transactions;
-	}
-	
-
-//Getters and Setters
-	
-	
-	
-	
-	
-	
-	
-	
-
-		
+			
 }

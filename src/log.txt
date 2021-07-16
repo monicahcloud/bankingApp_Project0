@@ -2,3 +2,17 @@
 2021-07-15 23:56:04 WARN  Logging:32 - Username created that already exists in the database
 2021-07-15 23:57:50 WARN  Logging:32 - Username created that already exists in the database
 2021-07-15 23:58:38 INFO  Logging:29 - New user has registered
+2021-07-16 10:40:08 INFO  Logging:29 - New user has registered
+2021-07-16 10:41:55 WARN  Logging:45 - User does not exist
+2021-07-16 10:42:14 WARN  Logging:45 - User does not exist
+2021-07-16 10:43:43 WARN  Logging:45 - User does not exist
+2021-07-16 14:27:59 INFO  Logging:29 - New user has registered
+2021-07-16 14:41:26 WARN  Logging:45 - User does not exist
+2021-07-16 14:42:30 WARN  Logging:45 - User does not exist
+2021-07-16 15:23:14 WARN  Logging:45 - User does not exist
+2021-07-16 15:28:36 INFO  Logging:53 - You have successfully logged in.
+2021-07-16 15:57:59 INFO  Logging:29 - New user has registered
+2021-07-16 15:58:51 INFO  Logging:53 - You have successfully logged in.
+2021-07-16 16:05:45 INFO  Logging:29 - New user has registered
+2021-07-16 16:06:17 INFO  Logging:53 - You have successfully logged in.
+2021-07-16 16:10:18 INFO  Logging:53 - You have successfully logged in.
