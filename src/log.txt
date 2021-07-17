@@ -16,3 +16,17 @@
 2021-07-16 16:05:45 INFO  Logging:29 - New user has registered
 2021-07-16 16:06:17 INFO  Logging:53 - You have successfully logged in.
 2021-07-16 16:10:18 INFO  Logging:53 - You have successfully logged in.
+2021-07-17 13:04:05 INFO  Logging:29 - New user has registered
+2021-07-17 13:04:20 INFO  Logging:53 - You have successfully logged in.
+2021-07-17 13:39:18 INFO  Logging:29 - New user has registered
+2021-07-17 13:39:18 INFO  Logging:22 - New account has been created.,
+2021-07-17 13:51:05 INFO  Logging:29 - New user has registered
+2021-07-17 13:51:05 INFO  Logging:22 - New account has been created.,
+2021-07-17 13:57:36 INFO  Logging:29 - New user has registered
+2021-07-17 13:57:36 INFO  Logging:22 - New account has been created.,
+2021-07-17 14:03:14 INFO  Logging:29 - New user has registered
+2021-07-17 14:03:15 INFO  Logging:22 - New account has been created.,
+2021-07-17 14:12:43 INFO  Logging:29 - New user has registered
+2021-07-17 14:12:43 INFO  Logging:22 - New account has been created.,
+2021-07-17 14:13:03 INFO  Logging:53 - You have successfully logged in.
+2021-07-17 14:19:27 INFO  Logging:29 - New user has registered

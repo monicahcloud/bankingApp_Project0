@@ -12,7 +12,7 @@ public interface AccountDao {
 				
 		//public List<PostDisplay> getAllAccounts();
 		
-		public User getUsersAccounts(User u);
+		public List<Account> getUserAccount(User u);
 		
 	}
 

@@ -1,10 +1,13 @@
 import java.util.Scanner;
+
+import com.example.dao.AccountDao;
+import com.example.dao.AccountDaoDB;
 import com.example.dao.UserDao;
 import com.example.dao.UserDaoDB;
 import com.example.models.Account;
 import com.example.models.Employee;
 import com.example.models.User;
-
+import com.example.services.AccountServices;
 import com.example.services.UserServices;
 
 
@@ -17,7 +20,10 @@ public class BankApplicationDriver {
 		
 		System.out.println();
 		UserDao uDao = new UserDaoDB();
+		AccountDao aDao = new AccountDaoDB();
 		UserServices uServ = new UserServices(uDao);
+		AccountServices aServ = new AccountServices(aDao);
+		
 		
 		Scanner in = new Scanner(System.in);
 		
@@ -33,14 +39,14 @@ public class BankApplicationDriver {
 		if(choice == 1) {
 			System.out.println("To register for an account you will need to make an initial deposit of $50\n"
 					+ " for the account to be approved.\n");
-//			System.out.println("What kind of account would you like to open? CHECKING or SAVINGS!");
-//			String acctType= in.nextLine().toUpperCase();
+			System.out.println("What kind of account would you like to open? CHECKING or SAVINGS!");
+			String acctType= in.nextLine().toUpperCase();
 			
-//				if(!"CHECKING".equals(acctType) && !"SAVINGS".equals(acctType)){
-//					System.out.println("Please enter Checking or Savings");		
-//					continue;
-//				}
-//				
+				if(!"CHECKING".equals(acctType) && !"SAVINGS".equals(acctType)){
+					System.out.println("Please enter Checking or Savings");		
+					continue;
+				}
+				
 			
 			System.out.println("Please enter your First Name:   ");
 			String first = in.nextLine();
@@ -60,8 +66,8 @@ public class BankApplicationDriver {
 			
 			if(initialBalance >= 50) {
 				
-				u = uServ.signUp(first, last,email, password);//create customer
-				//customer.setAccount(initialBalance, acctType);//create account
+				u = uServ.signUp(first, last, email, password);//create customer
+				a = aServ.createAccount(u.getId(), initialBalance, acctType);//create account
 				//bank.addCustomer(customer);//add to customers array
 				
 				System.out.println("You have successfully registered for an account.");

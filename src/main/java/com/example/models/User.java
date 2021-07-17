@@ -3,6 +3,7 @@ package com.example.models;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class User{
 	
@@ -14,10 +15,13 @@ public class User{
 	protected String password;
 	protected List<Account> userAcct;
 	
-	public User() {}
+	public User() {
+		userAcct = new ArrayList<Account>();
+	}
 		
 	//Used to send user info to the database because the db auto generates the id
 	public User(String firstName, String lastName, String email, String password) {
+		this.setId(Math.abs(ThreadLocalRandom.current().nextInt()));
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.username = firstName + lastName + (new Random().nextInt(9000) + 1000);

@@ -2,7 +2,10 @@ package com.example.dao;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,19 +32,18 @@ public class AccountDaoDB implements AccountDao{
 		try {
 			Connection con = conUtil.getConnection();
 			//To use our functions/procedure we need to turn off autocommit
-			con.setAutoCommit(false);
-			String sql = "call create_post(?,?,?,?)";
-			CallableStatement cs = con.prepareCall(sql);
 			
-			cs.setInt(1, acct.getAcctNumber());
-			cs.setInt(2, acct.getCustID());
-			cs.setDouble(3, acct.getOpeningBalance());
-			cs.setString(3, acct.getAcctType());
+			String sql =  "INSERT INTO accounts(accountnumber, customerid, opening_balance, accounttype) values"
+					+ "(?,?,?,?)";;
+			PreparedStatement ps = con.prepareStatement(sql);
+			
+			ps.setInt(1, acct.getAcctNumber());
+			ps.setInt(2, acct.getCustID());
+			ps.setDouble(3, acct.getOpeningBalance());
+			ps.setString(4, acct.getAcctType());
 		
-			cs.execute();
-			
-			con.setAutoCommit(true);
-			
+			ps.execute();
+					
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
@@ -49,8 +51,28 @@ public class AccountDaoDB implements AccountDao{
 	}
 
 	@Override
-	public User getUsersAccounts(User u) {
-		// TODO Auto-generated method stub
+	public List<Account> getUserAccount(User u) {
+		List<Account> accountList = new ArrayList<Account>();
+		
+		try {
+			Connection con = conUtil.getConnection();
+			con.setAutoCommit(false);
+			String sql = "SELECT * FROM accounts WHERE customerid =" + u.getId();
+			
+			//We need to create a statement with this sql string
+			PreparedStatement ps = con.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+	
+			while(rs.next()) {
+				accountList.add(new Account(rs.getInt(1), rs.getInt(2), rs.getDouble(3), rs.getString(4)));
+			}
+			CallableStatement cs = con.prepareCall(sql);
+			
+			return accountList;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 

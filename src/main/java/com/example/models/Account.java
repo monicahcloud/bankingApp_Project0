@@ -5,21 +5,28 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Account {
 	private int acctNumber;
-	private User custID;
+	private int custID;
 	private double openingBalance;
 	private String acctType;
 	
 	public Account() {}
 	
-	public Account(int acctNumber, User custID, double openingBalance, String acctType) {
+	public Account( int custID, double openingBalance, String acctType) {
 		
-		this.setAcctNumber(Math.abs(ThreadLocalRandom.current().nextInt()));;
+		this.setAcctNumber(Math.abs(ThreadLocalRandom.current().nextInt()));
 		this.custID = custID;
 		this.openingBalance = openingBalance;
 		this.acctType = acctType;
 	}
-
-
+	
+public Account( int acctNumber, int custID, double openingBalance, String acctType) {
+		
+		this.acctNumber = acctNumber;
+		this.custID = custID;
+		this.openingBalance = openingBalance;
+		this.acctType = acctType;
+	}
+	
 	//Getters and Setters
 	public int getAcctNumber() {
 		return acctNumber;
@@ -29,11 +36,11 @@ public class Account {
 		this.acctNumber = acctNumber;
 	}
 
-	public User getCustID() {
+	public int getCustID() {
 		return custID;
 	}
 
-	public void setCustID(User custID) {
+	public void setCustID(int custID) {
 		this.custID = custID;
 	}
 
@@ -53,5 +60,14 @@ public class Account {
 	public void setAcctType(String acctType) {
 		this.acctType = acctType;
 	}
-			
+
+	@Override
+	public String toString() {
+		
+		return "Account[acctNumber=" +  acctNumber + ", custID= " + custID + ",openingBalance=" + openingBalance + ", acctType= " + acctType +"]";
+	}
+
+	
+	
+	
 }

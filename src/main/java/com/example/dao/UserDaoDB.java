@@ -81,15 +81,15 @@ public class UserDaoDB implements UserDao{
 	public void createUser(User u) throws SQLException {
 		
 			Connection con = conUtil.getConnection();
-			String sql = "INSERT INTO users(first_name, last_name, email, username, password) values"
-					+ "(?,?,?,?,?)";
+			String sql = "INSERT INTO users(customerid, first_name, last_name, email, username, password) values"
+					+ "(?,?,?,?,?,?)";
 			PreparedStatement ps = con.prepareStatement(sql);
-			
-			ps.setString(1, u.getFirstName());
-			ps.setString(2, u.getLastName());
-			ps.setString(3, u.getEmail());
-			ps.setString(4, u.getUsername());
-			ps.setString(5, u.getPassword());
+			ps.setInt(1, u.getId());
+			ps.setString(2, u.getFirstName());
+			ps.setString(3, u.getLastName());
+			ps.setString(4, u.getEmail());
+			ps.setString(5, u.getUsername());
+			ps.setString(6, u.getPassword());
 				
 			ps.execute();
 			
