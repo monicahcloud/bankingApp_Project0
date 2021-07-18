@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -76,76 +75,39 @@ public class AccountDaoDB implements AccountDao{
 		return null;
 	}
 
+	
+
+	@Override
+	public void updateAccount(Account acct) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteAccount(Account acct) {
+try {
+			
+			Connection con = conUtil.getConnection();
+			String sql = "DELETE FROM accounts WHERE accounts.accountnumber = ?";
+			PreparedStatement ps = con.prepareStatement(sql);
+			
+			ps.setInt(1, acct.getAcctNumber());
+			
+			ps.execute();
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public Account getAccountByUsername(String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }
 
 	
-//	@Override
-//	public List<PostDisplay> getAllPosts() {
-//		
-//		List<PostDisplay> pList = new ArrayList<PostDisplay>();
-//		
-//		try {
-//			Connection con = conUtil.getConnection();
-//			con.setAutoCommit(false);
-//			//Use this syntax to call a stored function
-//			String sql = "{?=call get_all_posts()}";
-//			
-//			CallableStatement cs = con.prepareCall(sql);
-//			
-//			cs.registerOutParameter(1, Types.OTHER);
-//			
-//			cs.execute();
-//			
-//			ResultSet rs = (ResultSet) cs.getObject(1);
-//			
-//			while(rs.next()) {
-//				PostDisplay post = new PostDisplay(rs.getString(1), rs.getInt(2), rs.getInt(3), rs.getInt(4), rs.getString(5));
-//				pList.add(post);
-//			}
-//			
-//			con.setAutoCommit(true);
-//			return pList;
-//			
-//		} catch(SQLException e) {
-//			e.printStackTrace();
-//		}
-//		
-//		return null;
-//	}
-//
-//	@Override
-//	public User getUsersPosts(User u) {
-//		List<Post> posts = new ArrayList<Post>();
-//		try {
-//			Connection con = conUtil.getConnection();
-//			con.setAutoCommit(false);
-//			String sql = "{?=call get_user_posts(?)}";
-//			
-//			CallableStatement cs = con.prepareCall(sql);
-//			
-//			cs.registerOutParameter(1, Types.OTHER);
-//			cs.setInt(2, u.getId());
-//			
-//			cs.execute();
-//			
-//			ResultSet rs = (ResultSet) cs.getObject(1);
-//			
-//			while(rs.next()) {
-//				Post p = new Post(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4));
-//				posts.add(p);
-//			}
-//			
-//			u.setPosts(posts);
-//			
-//			con.setAutoCommit(true);
-//			return u;
-//			
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		return null;
-//	}
-//
-//}
-

@@ -8,6 +8,7 @@ public class Account {
 	private int custID;
 	private double openingBalance;
 	private String acctType;
+	protected List<Transactions> acctTransactions;
 	
 	public Account() {}
 	

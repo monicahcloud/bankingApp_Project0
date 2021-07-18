@@ -21,7 +21,7 @@ public class User{
 		
 	//Used to send user info to the database because the db auto generates the id
 	public User(String firstName, String lastName, String email, String password) {
-		this.setId(Math.abs(ThreadLocalRandom.current().nextInt()));
+		this.setId(new Random().nextInt(9000) + 1000);
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.username = firstName + lastName + (new Random().nextInt(9000) + 1000);

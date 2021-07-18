@@ -30,22 +30,5 @@ public class AccountServices {
 	}
 }
 	
-//	public User login (String username, String password) throws UserDoesNotExistException, InvalidCredentialsException{
-//		
-//		User u = uDao.getUserByUsername(username);
-//		
-//		if(u.getId() == 0) {
-//			Logging.logger.warn("User does not exist");
-//			throw new UserDoesNotExistException();
-//		}
-//		else if(!u.getPassword().equals(password)) {
-//			Logging.logger.warn("User tried to login with invalid credentials");
-//			throw new InvalidCredentialsException();
-//		}
-//		else {
-//			Logging.logger.info("You have successfully logged in.");
-//			
-//			return u;
-//		}
-//	}
+
 	

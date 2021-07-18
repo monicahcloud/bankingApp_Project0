@@ -10,9 +10,12 @@ public interface AccountDao {
 				
 		void createAccount(Account acct) throws SQLException;
 				
-		//public List<PostDisplay> getAllAccounts();
-		
 		public List<Account> getUserAccount(User u);
+				
+		Account getAccountByUsername(String username);
+	
+		void updateAccount(Account acct);
 		
+		void deleteAccount(Account acct);
 	}
 

@@ -16,8 +16,7 @@ public class BankApplicationDriver {
 	
 	public static void main(String[] args) {
 		Account a;
-		
-		
+			
 		System.out.println();
 		UserDao uDao = new UserDaoDB();
 		AccountDao aDao = new AccountDaoDB();
@@ -30,6 +29,9 @@ public class BankApplicationDriver {
 		System.out.println("Thank you for trusting First Bank with all of your banking needs.\n");
 		
 		User u = null;
+		
+//		System.out.println(uDao.getUserByUsername("JadaPickett-Smith4961"));
+		
 		
 		while(true) {
 		System.out.println("Press 1 to Signup in the your account or Press 2 to Login for a new account or Please 3 to logout!");
@@ -93,11 +95,11 @@ public class BankApplicationDriver {
 			System.out.println("Welcome " + u.getFirstName() + " " + u.getLastName());
 			
 			if(u.getUsername().equals(username) && password.equals(u.getPassword())) {
-					System.out.println(u.getFirstName() + u.getLastName() + ": You have successfully logged into your account.\nPlease select one of the following options.");
+					System.out.println(u.getFirstName() +" " + u.getLastName() + ": You have successfully logged into your account.\nPlease select one of the following options.");
 					System.out.println( );
 					System.out.println("1. View balance.");
-					System.out.println("2. Make a withdrawal.");
-					System.out.println("3. Make a deposit.");
+					System.out.println("2. Make a deposit .");
+					System.out.println("3. Make a withdrawal.");
 					System.out.println("4. View last transactions.");
 					System.out.println("5. Make a transfer");
 					System.out.println("6. Logout");
@@ -105,24 +107,24 @@ public class BankApplicationDriver {
 					
 					switch (option) {
 					
-					case 1:
-						double amount;
+					case 1://view balance
+						
 						
 						break;
-					case 2:
+					case 2: //make a deposit
 						double amount2;
 						
 						break;
-					case 3:
+					case 3: //make a withdrawal
 					
 						break;
-					case 4:
+					case 4://view last transactions
 						
 						break;
-					case 5:
+					case 5://make transfer
 						break;
-					case 6:
-						System.out.println("Thanks for trusting us with all of your banking needs.");
+					case 6://log out
+						System.out.println("Thank you for trusting us with all of your banking needs.");
 						break;					
 					}
 				}
