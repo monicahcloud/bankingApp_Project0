@@ -28,7 +28,7 @@ public class BankApplicationDriver {
 		TransactionDao tDao = new TransactionDaoDB();
 		UserServices uServ = new UserServices(uDao);
 		AccountServices aServ = new AccountServices(aDao);
-//		TransactionServices tServ = new TransactionServices(tDao);
+		//TransactionServices tServ = new TransactionServices(tDao);
 		
 		
 		
@@ -78,7 +78,7 @@ public class BankApplicationDriver {
 				
 				u = uServ.signUp(first, last, email, password);//create customer
 				a = aServ.createAccount(u.getId(), initialBalance, acctType);//create account
-				//bank.addCustomer(customer);//add to customers array
+				
 				
 				System.out.println("You have successfully registered for an account.");
 					
@@ -119,7 +119,10 @@ public class BankApplicationDriver {
 					switch (option) {
 					
 					case 1://view balance
-						t.inquiry();
+						
+						Account account = aDao.getAccountByUsername(username);
+						
+						aServ.("Your current balance is: $ " + aDao.getAccountByUsername(username));
 						
 						break;
 					case 2: //make a deposit

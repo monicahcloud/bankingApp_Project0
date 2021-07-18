@@ -32,7 +32,7 @@ public class Transactions {
 	
 	public Transactions(int id, Date timestamp, int accountnumber, String memo, double transAmount, String transType,
 			double acctBalance) {
-		
+
 		this.setId(new Random().nextInt(9000) + 1000);;
 		this.timestamp = timestamp;
 		this.accountnumber = accountnumber;
@@ -49,7 +49,17 @@ public class Transactions {
 		
 	}
 	
-	//Method for making an inquiry on the account
+	public Transactions(int accountnumber2, String memo2, double transAmount2, String acctType) {
+		// TODO Auto-generated constructor stub
+		this.setId(new Random().nextInt(9000) + 1000);;
+		this.timestamp = timestamp;
+		this.accountnumber = accountnumber2;
+		
+		this.transAmount = transAmount2;
+		this.transType = acctType;
+		this.acctBalance = acctBalance;
+	}
+		//Method for making an inquiry on the account
 		public  double inquiry() {
 			
 			System.out.println("*********************************************");
@@ -177,6 +187,10 @@ public class Transactions {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public void makeDeposit(Transactions t) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 		

@@ -32,7 +32,7 @@ public class AccountDaoDB implements AccountDao{
 			Connection con = conUtil.getConnection();
 			//To use our functions/procedure we need to turn off autocommit
 			
-			String sql =  "INSERT INTO accounts(accountnumber, customerid, opening_balance, accounttype) values"
+			String sql =  "INSERT INTO accounts(accountnumber, customerid, account_balance, accounttype) values"
 					+ "(?,?,?,?)";;
 			PreparedStatement ps = con.prepareStatement(sql);
 			
@@ -48,6 +48,34 @@ public class AccountDaoDB implements AccountDao{
 		}
 		
 	}
+	
+//	@Override
+//	public Account viewBalance(Account a) throws SQLException {
+//		List<Account> accountList = new ArrayList<Account>();
+//		try {
+//			Connection con = conUtil.getConnection();
+//			
+//			String sql = “SELECT * FROM accounts WHERE accounts.current_balance = ?“;
+//			
+//			PreparedStatement ps = con.prepareStatement(sql);
+//			ResultSet rs = ps.executeQuery();
+//			
+//			while(rs.next()) {
+//				
+//				a.setCurrentBal(rs.getDouble(3));
+//			
+//			}
+//			return a;
+//			
+//		} catch(SQLException e) {
+//			
+//			e.printStackTrace();
+//			
+//		}
+//		
+//		return a;
+		
+	
 
 	@Override
 	public List<Account> getUserAccount(User u) {
@@ -77,11 +105,22 @@ public class AccountDaoDB implements AccountDao{
 
 	
 
-	@Override
-	public void updateAccount(Account acct) {
-		// TODO Auto-generated method stub
-		
-	}
+//	@Override
+//	public void updateAccount(Account acct) {
+//		try {
+//		Connection con = conUtil.getConnection();
+//		String sql = "UPDATE FROM accounts WHERE accounts.accountnumber = ?";
+//		PreparedStatement ps = con.prepareStatement(sql);
+//		
+//		ps.setInt(1, acct.getAcctNumber());
+//		
+//		ps.execute();
+//		
+//	} catch(SQLException e) {
+//		e.printStackTrace();
+//	}
+//	}
+
 
 	@Override
 	public void deleteAccount(Account acct) {

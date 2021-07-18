@@ -28,6 +28,21 @@ public class AccountServices {
 		 
 		return a;
 	}
+//	public Account viewBalance( int acctNumber) throws UserNameNotAvailable {
+//		Account a = new Account(acctNumber);
+//		
+//		try {
+//			aDao.viewBalance(a);
+//			Logging.logger.info("You have viewed your account balance");
+//			
+//		} catch (SQLException e) {
+//			Logging.logger.warn("You are unable to view your balance.");
+//			throw new UserNameNotAvailable();
+//		}
+//		 
+//		return a;
+//	}
+	
 }
 	
 

@@ -28,6 +28,10 @@ public Account( int acctNumber, int custID, double openingBalance, String acctTy
 		this.acctType = acctType;
 	}
 	
+	public Account(double acctNumber) {
+	this.acctNumber = acctNumber;
+}
+
 	//Getters and Setters
 	public int getAcctNumber() {
 		return acctNumber;

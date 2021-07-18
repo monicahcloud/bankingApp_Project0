@@ -1,6 +1,7 @@
 package com.example.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.models.Transactions;
-import com.example.models.User;
 import com.example.utils.ConnectionUtil;
 
 
@@ -56,7 +56,12 @@ try {
 			String sql = "DELETE FROM accounts WHERE accounts.accountnumber = ?";
 			PreparedStatement ps = con.prepareStatement(sql);
 			
-			ps.setInt(1, acct.getAcctNumber());
+			ps.setInt(1 , t.getId());
+			ps.setDate(2, (Date) t.getTimestamp());
+			ps.setInt(3, t.getAccountnumber());
+			ps.setString(4, t.getMemo());
+			ps.setString(5, t.getTransType());
+			ps.setDouble(6, t.getAcctBalance());
 			
 			ps.execute();
 			
@@ -66,7 +71,7 @@ try {
 		
 	}
 		
-	}
+	
 
 	@Override
 	public void makeWithdrawl(Transactions t) throws SQLException {
