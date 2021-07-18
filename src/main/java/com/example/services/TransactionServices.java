@@ -1,40 +1,42 @@
 package com.example.services;
 
+import java.sql.SQLException;
+
+import com.example.dao.AccountDao;
+import com.example.exceptions.UserNameNotAvailable;
+import com.example.logging.Logging;
+import com.example.models.Account;
 import com.example.models.Transactions;
 
 public class TransactionServices {
 	
-	private String acctType;
-	private double acctBalance;
-	private double previousTransaction;
+	private Transactions tDao;
 	
-	public TransactionServices () {};
+	public TransactionServices(Transactions t) {
+		this.tDao = t;
+		}
 	
-	public TransactionServices(String type) {
 		
-		acctType = type;
-		acctBalance = 0;
-	}// end of parameterized constructor
+		public Transactions makeDeposit( int customerID, double balance, String acctType) throws UserNameNotAvailable {
+			Account t = new Account(customerID, balance, acctType);
+			
+			try {
+			tDao.makeDeposit(t);
+				Logging.logger.info("New account has been created.,");
+				
+			} catch (SQLException e) {
+				Logging.logger.warn("Account created that already exists in the database");
+				throw new UserNameNotAvailable();
+			}
+			 
+			return a;
+		}
+	}
 	
 	
 	
-	public TransactionServices(String type, double balance) {
-		super();
-		acctType = type;
-		acctBalance = balance;
-		}// end of parameterized constructor
-
 	
 	
-	//Method for making an inquiry on the account
-	public  double inquiry() {
-		
-		System.out.println("*********************************************");
-		System.out.println("Your current balance is:  $" + acctBalance);
-		System.out.println("**********************************************");
-		
-		return acctBalance;
-	}//end of inquiry method
 	
 	
 	
