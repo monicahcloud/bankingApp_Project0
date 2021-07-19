@@ -22,32 +22,45 @@ public class BankApplicationDriver {
 		Account a;
 		Transactions t= new Transactions();	
 		
-		System.out.println();
 		UserDao uDao = new UserDaoDB();
 		AccountDao aDao = new AccountDaoDB();
-		TransactionDao tDao = new TransactionDaoDB();
+		//TransactionDao tDao = new TransactionDaoDB();
 		UserServices uServ = new UserServices(uDao);
 		AccountServices aServ = new AccountServices(aDao);
 		//TransactionServices tServ = new TransactionServices(tDao);
 		
+		System.out.println(uDao.getUserByUsername("MonicahCloud5943"));
+		//uDao.deleteUser(u);
+		System.out.println(uDao.getAllUsers());
+		//aDao.getAccountByUser("MonicahCloud5943");
+		System.out.println(aDao.getAllAccounts());
+		//aDao.getUserAccount(u);
+		aDao.makeDeposit("MonicahCloud5943", 5100);
 		
 		
 		Scanner in = new Scanner(System.in);
-		
+		System.out.println("*******************************************************************************");
+		System.out.println();
 		System.out.println("Thank you for trusting First Bank with all of your banking needs.\n");
-		
+		System.out.println();
+		System.out.println("*******************************************************************************");
+//		
+//		System.out.println(uDao.getUserByUsername("JadaPickett-Smith4357"));
+//		
+//		System.out.println( uDao.getAllUsers());
+	
+//	System.out.println( aDao.getUserAccount("JadaPickett-Smith4357"));
 		User u = null;
 		
-//		System.out.println(uDao.getUserByUsername("JadaPickett-Smith4961"));
-		
-		
 		while(true) {
-		System.out.println("Press 1 to Signup in the your account or Press 2 to Login for a new account or Please 3 to logout!");
+		System.out.println("Press 1 to Signup for a new account or Press 2 to Login for a new account or Please 3 to logout!");
 		
 		int choice = Integer.parseInt(in.nextLine());
 		
-		if(choice == 1) {
-			System.out.println("To register for an account you will need to make an initial deposit of $50\n"
+		if(choice == 1) { //Signup
+			
+			System.out.println();
+			System.out.println("To create an account you will need to make an initial deposit of $50\n"
 					+ " for the account to be approved.\n");
 			System.out.println("What kind of account would you like to open? CHECKING or SAVINGS!");
 			String acctType= in.nextLine().toUpperCase();
@@ -57,7 +70,6 @@ public class BankApplicationDriver {
 					continue;
 				}
 				
-			
 			System.out.println("Please enter your First Name:   ");
 			String first = in.nextLine();
 			
@@ -70,7 +82,7 @@ public class BankApplicationDriver {
 			System.out.println("Please enter a password:   ");
 			String password = in.nextLine();
 			
-			System.out.println("Please deposit an initial balance of at least $50 to open this account. ");
+			System.out.println("How much will you be depositing as your opening balanace?");
 			double initialBalance = in.nextDouble();
 			in.nextLine();
 			
@@ -79,9 +91,8 @@ public class BankApplicationDriver {
 				u = uServ.signUp(first, last, email, password);//create customer
 				a = aServ.createAccount(u.getId(), initialBalance, acctType);//create account
 				
-				
-				System.out.println("You have successfully registered for an account.");
-					
+				System.out.println("You have successfully registered for a new account.");
+				System.out.println();	
 				System.out.println("Your username is " + u.getUsername() + " and your password is " + u.getPassword());
 				//System.out.println("Your starting balance is " + u.getAccount().getBalance());
 				System.out.println();
@@ -89,7 +100,7 @@ public class BankApplicationDriver {
 			}else {
 				System.out.println("You did not meet the requirements to open an account.");
 				
-			}
+			}//End of signup
 			
 		}else if (choice == 2) {//login
 			
@@ -100,12 +111,12 @@ public class BankApplicationDriver {
 			String password = in.nextLine();
 			
 			u= uServ.login(username, password);
-			System.out.println("Welcome " + u.getFirstName() + " " + u.getLastName());
+			System.out.println("\nWelcome " + u.getFirstName() + " " + u.getLastName());
+			System.out.println();
 			
 			for(User user: uDao.getAllUsers()) {
 			if(u.getUsername().equals(username) && password.equals(u.getPassword())) {
-					System.out.println(u.getFirstName() +" " + u.getLastName() + ": You have successfully logged into your account.\nPlease select one of the following options.");
-					
+					System.out.println("\n" +u.getFirstName() +" " + u.getLastName() + ": You have successfully logged into your account.\n\nPlease select from the following options.");
 					System.out.println( );
 					System.out.println("1. View balance.");
 					System.out.println("2. Make a deposit .");
@@ -120,16 +131,19 @@ public class BankApplicationDriver {
 					
 					case 1://view balance
 						
-						Account account = aDao.getAccountByUsername(username);
-						
-						aServ.("Your current balance is: $ " + aDao.getAccountByUsername(username));
-						
+						System.out.println("*********************************************");
+						System.out.println("Your current balance is:  $" + aDao.getAccountByUser(u).getCurrentBalance());
+						System.out.println("**********************************************");
+										
 						break;
 					case 2: //make a deposit
 						double amount;
 						System.out.println("How much are you depositing into this account?");
 						amount= Double.parseDouble(in.nextLine());
-						t.makeDeposit(amount);
+						System.out.println("************************************");
+						System.out.println("Deposit:  $" + amount);
+						//System.out.println("Your new balance is:  $" aDao.getAccountByUser(u) );
+						System.out.println("************************************");
 						break;
 					case 3: //make a withdrawal
 						double amount2;
@@ -156,6 +170,7 @@ public class BankApplicationDriver {
 		} else {
 			System.out.println("Invalid input.");
 		}
+		
 		
 }}}
 		

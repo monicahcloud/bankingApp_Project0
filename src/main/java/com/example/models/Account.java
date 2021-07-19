@@ -6,30 +6,40 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Account {
 	private int acctNumber;
 	private int custID;
-	private double openingBalance;
+	private double currentBalance;
 	private String acctType;
 	protected List<Transactions> acctTransactions;
 	
 	public Account() {}
 	
-	public Account( int custID, double openingBalance, String acctType) {
+	public Account( int custID, double currentBalance, String acctType) {
 		
 		this.setAcctNumber(Math.abs(ThreadLocalRandom.current().nextInt()));
 		this.custID = custID;
-		this.openingBalance = openingBalance;
+		this.currentBalance = currentBalance;
 		this.acctType = acctType;
 	}
 	
-public Account( int acctNumber, int custID, double openingBalance, String acctType) {
+public Account( int acctNumber, int custID, double currentBalance, String acctType) {
 		
 		this.acctNumber = acctNumber;
 		this.custID = custID;
-		this.openingBalance = openingBalance;
+		this.currentBalance = currentBalance;
 		this.acctType = acctType;
 	}
 	
-	public Account(double acctNumber) {
+public Account(int acctNumber, int custID, int currentBalance, String acctType,
+		List<Transactions> acctTransactions) {
+	super();
 	this.acctNumber = acctNumber;
+	this.custID = custID;
+	this.currentBalance = currentBalance;
+	this.acctType = acctType;
+	this.acctTransactions = acctTransactions;
+}
+
+	public Account(double acctNumber) {
+	this.acctNumber = (int) acctNumber;
 }
 
 	//Getters and Setters
@@ -49,12 +59,12 @@ public Account( int acctNumber, int custID, double openingBalance, String acctTy
 		this.custID = custID;
 	}
 
-	public double getOpeningBalance() {
-		return openingBalance;
+	public double getCurrentBalance() {
+		return currentBalance;
 	}
 
-	public void setOpeningBalance(double openingBalance) {
-		this.openingBalance = openingBalance;
+	public void setCuurentBalance(double currentBalance) {
+		this.currentBalance = currentBalance;
 	}
 
  
@@ -69,7 +79,7 @@ public Account( int acctNumber, int custID, double openingBalance, String acctTy
 	@Override
 	public String toString() {
 		
-		return "Account[acctNumber=" +  acctNumber + ", custID= " + custID + ",openingBalance=" + openingBalance + ", acctType= " + acctType +"]";
+		return "Account[acctNumber=" +  acctNumber + ", custID= " + custID + ",currentBalance=" + currentBalance + ", acctType= " + acctType +"]";
 	}
 
 	

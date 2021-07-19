@@ -5,17 +5,18 @@ import com.example.models.Account;
 import com.example.models.User;
 public interface AccountDao {
 
-		List<Account> getAllAccount();
+		List<Account> getAllAccounts();
 					
-		void createAccount(Account acct) throws SQLException;
+		void createAccount(Account a) throws SQLException;
 				
 		public List<Account> getUserAccount(User u);
-				
-		Account getAccountByUsername(String username);
+						
+		Account getAccountByUser(User u);
 	
-//		void updateAccount(Account acct);
+		public void makeDeposit(String username, double amount);
 		
-		void deleteAccount(Account acct);
-//		void viewBalance(Account acctNumber) throws SQLException;
+		void deleteAccount(Account a);
+	
+	
 	}
 

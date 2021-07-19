@@ -54,3 +54,55 @@
 2021-07-18 14:44:29 INFO  Logging:22 - New account has been created.,
 2021-07-18 14:44:48 INFO  Logging:53 - You have successfully logged in.
 2021-07-18 15:09:40 INFO  Logging:29 - New user has registered
+2021-07-18 15:09:40 INFO  Logging:22 - New account has been created.,
+2021-07-18 15:13:07 INFO  Logging:53 - You have successfully logged in.
+2021-07-19 08:35:07 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 08:37:30 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 09:34:26 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 10:03:03 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 10:04:37 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 10:06:08 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 10:07:40 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 10:59:03 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 11:05:18 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 11:09:30 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 11:45:25 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 11:49:55 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 11:58:34 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 12:00:51 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 12:02:43 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 12:07:02 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 12:59:56 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 13:05:26 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 14:24:32 INFO  Logging:28 - New user has registered
+2021-07-19 14:24:32 INFO  Logging:22 - New account has been created.,
+2021-07-19 14:26:59 WARN  Logging:31 - Username created that already exists in the database
+2021-07-19 14:27:56 INFO  Logging:28 - New user has registered
+2021-07-19 14:27:57 INFO  Logging:22 - New account has been created.,
+2021-07-19 14:31:24 INFO  Logging:28 - New user has registered
+2021-07-19 14:31:24 INFO  Logging:22 - New account has been created.,
+2021-07-19 14:33:45 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 14:39:41 INFO  Logging:28 - New user has registered
+2021-07-19 14:39:41 INFO  Logging:22 - New account has been created.,
+2021-07-19 14:39:54 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 14:46:58 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 15:00:48 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 15:35:50 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 15:57:08 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 16:06:04 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 17:18:41 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 17:31:15 WARN  Logging:145 - Account created that already exists in the database
+2021-07-19 17:33:01 WARN  Logging:145 - Account created that already exists in the database
+2021-07-19 17:44:34 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 17:49:56 WARN  Logging:145 - Account created that already exists in the database
+2021-07-19 17:50:09 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 17:52:24 WARN  Logging:145 - Account created that already exists in the database
+2021-07-19 17:52:33 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 18:45:30 WARN  Logging:145 - Account created that already exists in the database
+2021-07-19 18:46:18 WARN  Logging:145 - Account created that already exists in the database
+2021-07-19 18:48:54 INFO  Logging:28 - New user has registered
+2021-07-19 18:48:55 INFO  Logging:22 - New account has been created.,
+2021-07-19 18:49:13 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 18:51:46 WARN  Logging:145 - Account created that already exists in the database
+2021-07-19 18:52:07 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 18:53:15 WARN  Logging:145 - Account created that already exists in the database
