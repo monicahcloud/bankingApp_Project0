@@ -23,6 +23,24 @@ public class AccountDaoDB implements AccountDao{
 	@Override
 	public List<Account> getAllAccounts() {
 		List<Account> accountList = new ArrayList<Account>();
+		try {
+			Connection con = conUtil.getConnection();
+			//To create a simple statement we write our query as a string
+			String sql = "SELECT * FROM accounts";
+			
+			//We need to create a statement with this sql string
+			PreparedStatement ps = con.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+	
+			while(rs.next()) {
+				accountList.add(new Account(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4)));
+			}
+			
+			return accountList;
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
 		
 		return null;
 	}
@@ -65,7 +83,7 @@ public class AccountDaoDB implements AccountDao{
 			ResultSet rs = ps.executeQuery();
 	
 			while(rs.next()) {
-				accountList.add(new Account(rs.getInt(1), rs.getInt(2), rs.getDouble(3), rs.getString(4)));
+				accountList.add(new Account(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4)));
 			
 			
 			}
@@ -103,25 +121,27 @@ try {
 		try {
 			Connection con = conUtil.getConnection();
 			con.setAutoCommit(false);
-			String sql = "{?=call get_user_accounts()}";
+			//String sql = "{?=call get_user_accounts()}";
+			String sql = "SELECT * FROM accounts WHERE customerid =" + u.getId();
+			PreparedStatement ps = con.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			//CallableStatement cs = con.prepareCall(sql);
+			
+			//cs.registerOutParameter(1, Types.OTHER);
 		
-			CallableStatement cs = con.prepareCall(sql);
 			
-			cs.registerOutParameter(1, Types.OTHER);
-			//cs.setInt(2, u.getId());
+			//cs.execute();
 			
-			cs.execute();
-			
-			ResultSet rs = (ResultSet) cs.getObject(1);
+			//ResultSet rs = (ResultSet) cs.getObject(1);
 			
 			while(rs.next()) {
 				Account a= new Account(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4));
 				accountList.add(0, a);
 			}
 			
-			u.setUserAcct(accountList);
-			con.setAutoCommit(true);
-			return accountList.get(1);
+			//u.setUserAcct(accountList);
+			//con.setAutoCommit(true);
+			return accountList.get(0);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -130,27 +150,32 @@ try {
 	}
 
 	@Override
-	public void makeDeposit(String username, double amount) {
-		String sql = "{call DEPOSIT_AMOUNT(?,?)}";
-
-		try( Connection con = conUtil.getConnection();
-				CallableStatement cs = con.prepareCall(sql)){
-
-			cs.setString(1, username);
-			cs.setDouble(2, amount);
-			cs.execute();
-			Logging.logger.info("New deposit has been added.");
+	public void makeDeposit(User u, int depositAmount) {
+		Account a = getAccountByUser(u);
 		
-		} catch (SQLException e) {
+		try {
+			Connection con = conUtil.getConnection();
+			//To use our functions/procedure we need to turn off autocommit
+			
+			String sql =  "UPDATE accounts set current_balance=? WHERE customerid=?";
+			
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1, depositAmount + a.getCurrentBalance());
+			ps.setInt(2, u.getId());
+			ps.execute();
+			//ResultSet rs = ps.executeQuery();
+//		
+	//return a;
+								
+		}//end of try
+		catch (SQLException e) {
 			Logging.logger.warn("Account created that already exists in the database");
-		} 
+		}//end of catch
 		
+		 
 		
-		
-	}		
-	
-	
-	}
+			}//end of deposit
+	}//end of class
 
 	
 			

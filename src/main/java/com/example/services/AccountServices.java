@@ -14,7 +14,7 @@ public class AccountServices {
 		this.aDao = a;
 	}
 	
-	public Account createAccount( int customerID, double balance, String acctType) throws UserNameNotAvailable {
+	public Account createAccount( int customerID, int balance, String acctType) throws UserNameNotAvailable {
 		Account a = new Account(customerID, balance, acctType);
 		
 		try {

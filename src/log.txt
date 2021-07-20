@@ -106,3 +106,33 @@
 2021-07-19 18:51:46 WARN  Logging:145 - Account created that already exists in the database
 2021-07-19 18:52:07 INFO  Logging:52 - You have successfully logged in.
 2021-07-19 18:53:15 WARN  Logging:145 - Account created that already exists in the database
+2021-07-19 18:53:25 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 19:25:33 WARN  Logging:163 - Account created that already exists in the database
+2021-07-19 19:27:02 WARN  Logging:163 - Account created that already exists in the database
+2021-07-19 19:27:43 WARN  Logging:163 - Account created that already exists in the database
+2021-07-19 19:29:29 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 19:41:33 WARN  Logging:163 - Account created that already exists in the database
+2021-07-19 19:43:02 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 19:45:23 WARN  Logging:163 - Account created that already exists in the database
+2021-07-19 19:45:36 WARN  Logging:163 - Account created that already exists in the database
+2021-07-19 19:45:49 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 19:46:05 WARN  Logging:163 - Account created that already exists in the database
+2021-07-19 19:46:23 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 19:47:11 WARN  Logging:163 - Account created that already exists in the database
+2021-07-19 19:47:30 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 19:47:54 WARN  Logging:163 - Account created that already exists in the database
+2021-07-19 19:48:04 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 19:49:45 WARN  Logging:163 - Account created that already exists in the database
+2021-07-19 19:49:55 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 21:33:29 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 21:34:45 WARN  Logging:44 - User does not exist
+2021-07-19 21:35:32 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 21:45:43 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 21:59:49 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 22:00:49 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 22:01:22 INFO  Logging:28 - New user has registered
+2021-07-19 22:03:48 INFO  Logging:28 - New user has registered
+2021-07-19 22:03:48 INFO  Logging:22 - New account has been created.,
+2021-07-19 22:04:02 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 22:04:21 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 22:24:27 INFO  Logging:52 - You have successfully logged in.

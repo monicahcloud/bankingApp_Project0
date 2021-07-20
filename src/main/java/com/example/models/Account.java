@@ -6,13 +6,13 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Account {
 	private int acctNumber;
 	private int custID;
-	private double currentBalance;
+	private int currentBalance;
 	private String acctType;
 	protected List<Transactions> acctTransactions;
 	
 	public Account() {}
 	
-	public Account( int custID, double currentBalance, String acctType) {
+	public Account( int custID, int currentBalance, String acctType) {
 		
 		this.setAcctNumber(Math.abs(ThreadLocalRandom.current().nextInt()));
 		this.custID = custID;
@@ -20,7 +20,7 @@ public class Account {
 		this.acctType = acctType;
 	}
 	
-public Account( int acctNumber, int custID, double currentBalance, String acctType) {
+public Account( int acctNumber, int custID, int currentBalance, String acctType) {
 		
 		this.acctNumber = acctNumber;
 		this.custID = custID;
@@ -59,12 +59,12 @@ public Account(int acctNumber, int custID, int currentBalance, String acctType,
 		this.custID = custID;
 	}
 
-	public double getCurrentBalance() {
+	public int getCurrentBalance() {
 		return currentBalance;
 	}
 
-	public void setCuurentBalance(double currentBalance) {
-		this.currentBalance = currentBalance;
+	public int setCurrentBalance(int currentBalance) {
+		return this.currentBalance = currentBalance;
 	}
 
  

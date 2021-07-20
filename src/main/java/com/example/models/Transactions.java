@@ -106,18 +106,18 @@ public class Transactions {
 		
 		
 		//Method for viewing the previous transactions
-		public void viewPreviousTransaction() {
-			
-			if(previousTransaction > 0) {
-				System.out.println("TRANS TYPE:  DEPOSIT ---- Amount: " + previousTransaction );
-				
-			} else if (previousTransaction < 0) {
-				System.out.println("TRANS TYPE:  WITHDRAWAL ---- Amount: " + previousTransaction );
-				
-			} else {
-				System.out.println("You did not make a transaction.");
-			} // end of else statement
-		} //end of viewPreviousTransaction method
+//		public void viewPreviousTransaction() {
+//			
+//			if(previousTransaction > 0) {
+//				System.out.println("TRANS TYPE:  DEPOSIT ---- Amount: " + previousTransaction );
+//				
+//			} else if (previousTransaction < 0) {
+//				System.out.println("TRANS TYPE:  WITHDRAWAL ---- Amount: " + previousTransaction );
+//				
+//			} else {
+//				System.out.println("You did not make a transaction.");
+//			} // end of else statement
+		//} //end of viewPreviousTransaction method
 		
 		
 		// method to transfer money between accounts
