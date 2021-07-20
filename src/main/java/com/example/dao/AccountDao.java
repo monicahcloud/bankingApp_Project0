@@ -13,13 +13,13 @@ public interface AccountDao {
 						
 		Account getAccountByUser(User u);
 	
-		//public void makeDeposit(String username, double amount);
-		
 		void deleteAccount(Account a);
 
 		void makeDeposit( User u, int depositAmount);
 	
 		void withDrawal( User u, int withDrawalAmount);
-	
+		
+		//void transfer (User u1, User u2 ,int current_balance);
+		void transfer ();
 	}
 

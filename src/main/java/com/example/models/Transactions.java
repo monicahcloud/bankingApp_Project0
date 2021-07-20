@@ -121,25 +121,25 @@ public class Transactions {
 		
 		
 		// method to transfer money between accounts
-//		public void transferMoney(double amount, Transactions acct) {
-//			
-//			if(acctBalance < amount) {
+		public void transferMoney(double amount, Transactions acct) {
+			
+			if(acctBalance < amount) {
+				
+				System.out.println("We're unable to complete this transaction. Please try again later.");
+				
+				}
+			
+			else {
+				acctBalance -= amount;
+				acct.acctBalance += amount;
+				
+				System.out.println("************************************************************************************");
+				System.out.println("Transfer is successful. " + " The new balance in " + acctType  + "'s account is "+ acctBalance);
+				System.out.println("Transfer received. $" + acct.acctBalance + " was deposited into " + acct.acctType  + " 's account.");
+				System.out.println("*************************************************************************************");
 //				
-//				System.out.println("We're unable to complete this transaction. Please try again later.");
-//				
-//				}
-//			
-//			else {
-//				acctBalance -= amount;
-//				acct.acctBalance += amount;
-//				
-//				System.out.println("************************************************************************************");
-//				System.out.println("Transfer is successful. " + " The new balance in " + acctType  + "'s account is "+ acctBalance);
-//				System.out.println("Transfer received. $" + acct.acctBalance + " was deposited into " + acct.acctType  + " 's account.");
-//				System.out.println("*************************************************************************************");
-////				
-//			}//end of else statement
-//			}//end of transferMoney method
+			}//end of else statement
+			}//end of transferMoney method
 		
 	public Date getTimestamp() {
 		return timestamp;

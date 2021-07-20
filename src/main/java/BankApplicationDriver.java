@@ -20,37 +20,22 @@ public class BankApplicationDriver {
 	
 	public static void main(String[] args) {
 		Account a;
-		Transactions t= new Transactions();	
-		
+			
 		UserDao uDao = new UserDaoDB();
 		AccountDao aDao = new AccountDaoDB();
-		//TransactionDao tDao = new TransactionDaoDB();
 		UserServices uServ = new UserServices(uDao);
 		AccountServices aServ = new AccountServices(aDao);
-		//TransactionServices tServ = new TransactionServices(tDao);
-		User u1 = uDao.getUserByUsername("MonicahCloud5943");
-		System.out.println(u1);
-		//uDao.deleteUser(u);
+	
 		System.out.println(uDao.getAllUsers());
-		System.out.println(aDao.getAccountByUser(u1));
 		System.out.println(aDao.getAllAccounts());
-		
-		
-		//aDao.makeDeposit("MonicahCloud5943", 5100);
-		
-		
+				
 		Scanner in = new Scanner(System.in);
 		System.out.println("*******************************************************************************");
 		System.out.println();
 		System.out.println("Thank you for trusting First Bank with all of your banking needs.\n");
 		System.out.println();
 		System.out.println("*******************************************************************************");
-//		
-//		System.out.println(uDao.getUserByUsername("JadaPickett-Smith4357"));
-//		
-//		System.out.println( uDao.getAllUsers());
-	
-//	System.out.println( aDao.getUserAccount("JadaPickett-Smith4357"));
+
 		User u = null;
 		
 		while(true) {
@@ -83,7 +68,7 @@ public class BankApplicationDriver {
 			System.out.println("Please enter a password:   ");
 			String password = in.nextLine();
 			
-			System.out.println("How much will you be depositing as your opening balanace?");
+			System.out.println("How much will you be depositing as your opening balance?");
 			int initialBalance = in.nextInt();
 			in.nextLine();
 			
@@ -120,12 +105,13 @@ public class BankApplicationDriver {
 
 					System.out.println("\n" +u.getFirstName() +" " + u.getLastName() + ": You have successfully logged into your account.\n\nPlease select from the following options.");
 					System.out.println( );
+					System.out.println("***********************************************************");
 					System.out.println("1. View balance.");
 					System.out.println("2. Make a deposit .");
 					System.out.println("3. Make a withdrawal.");
 					System.out.println("4. Make a transfer.");
 					System.out.println("5. Logout");
-				
+					System.out.println("***********************************************************");
 					
 					int option = Integer.parseInt(in.nextLine());
 					
@@ -138,7 +124,9 @@ public class BankApplicationDriver {
 						System.out.println("**********************************************");
 										
 						break;
+						
 					case 2: //make a deposit
+						
 						int amount;
 						System.out.println("How much are you depositing into this account?");
 						amount= Integer.parseInt(in.nextLine());
@@ -147,8 +135,11 @@ public class BankApplicationDriver {
 						System.out.println("Deposited:  $" + amount);
 						System.out.println("Your new balance is:  $" + aDao.getAccountByUser(u).getCurrentBalance() );
 						System.out.println("************************************");
+						
 						break;
+						
 					case 3: //make a withdrawal
+						
 						int amount2;
 						System.out.println("How much are you withdrawing from this account?");
 						amount2= Integer.parseInt(in.nextLine());
@@ -157,19 +148,14 @@ public class BankApplicationDriver {
 						aDao.withDrawal(u, amount2);
 						System.out.println("Requested Withdrawal Amount:  $" + amount2);
 						System.out.println("Your new balance is:  $" + aDao.getAccountByUser(u).getCurrentBalance() );
-						//						System.out.println("We're unable to complete this transaction. Please try again later.");
 						System.out.println("************************************");
+						
 						break;
+						
 					case 4://make transfer
-//						double amount3;
-//						System.out.println("How much are you withdrawing from this account?");
-//						amount3= Double.parseDouble(in.nextLine());
-//						
-//						System.out.println("************************************************************************************");
-//						System.out.println("Transfer is successful. " + " The new balance in " + acctType  + "'s account is "+ acctBalance);
-//						System.out.println("Transfer received. $" + acct.acctBalance + " was deposited into " + acct.acctType  + " 's account.");
-//						System.out.println("*************************************************************************************");
+						aDao.transfer();
 						break;
+					
 					case 5://log out
 						flag = true;
 						System.out.println("Thank you for trusting us with all of your banking needs.");
@@ -179,12 +165,19 @@ public class BankApplicationDriver {
 			}
 					
 		}else if (choice == 3) {
+			System.out.println("**********************************************************");
+			System.out.println("***********************************************************");
+			System.out.println();
 			System.out.println("Thanks for trusting us with all of your banking needs.\n");
+			System.out.println();
+			System.out.println("************************************************************");
+			System.out.println("************************************************************");
 			break;
+			
 		} else {
 			System.out.println("Invalid input.");
 		}
-		
-		
-}}}
+				}
+		}
+	}
 		
