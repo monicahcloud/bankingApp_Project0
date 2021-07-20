@@ -163,18 +163,41 @@ try {
 			ps.setInt(1, depositAmount + a.getCurrentBalance());
 			ps.setInt(2, u.getId());
 			ps.execute();
-			//ResultSet rs = ps.executeQuery();
-//		
-	//return a;
+
 								
 		}//end of try
 		catch (SQLException e) {
 			Logging.logger.warn("Account created that already exists in the database");
 		}//end of catch
-		
-		 
+			 
 		
 			}//end of deposit
+
+	@Override
+	public void withDrawal(User u, int withDrawalAmount) {
+Account a = getAccountByUser(u);
+		
+		try {
+			Connection con = conUtil.getConnection();
+			//To use our functions/procedure we need to turn off autocommit
+			
+			String sql =  "UPDATE accounts set current_balance=? WHERE customerid=?";
+			
+			PreparedStatement ps = con.prepareStatement(sql);
+			ps.setInt(1,  a.getCurrentBalance() - withDrawalAmount);
+			ps.setInt(2, u.getId());
+			ps.execute();
+
+								
+		}//end of try
+		catch (SQLException e) {
+			Logging.logger.warn("Account created that already exists in the database");
+		}//end of catch
+			 
+		
+			}//end of deposit
+		
+	
 	}//end of class
 
 	

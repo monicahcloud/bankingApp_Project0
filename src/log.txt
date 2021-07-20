@@ -136,3 +136,6 @@
 2021-07-19 22:04:02 INFO  Logging:52 - You have successfully logged in.
 2021-07-19 22:04:21 INFO  Logging:52 - You have successfully logged in.
 2021-07-19 22:24:27 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 22:24:48 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 22:25:10 INFO  Logging:52 - You have successfully logged in.
+2021-07-19 22:52:44 WARN  Logging:44 - User does not exist

@@ -144,7 +144,7 @@ public class BankApplicationDriver {
 						amount= Integer.parseInt(in.nextLine());
 						System.out.println("************************************");
 						aDao.makeDeposit(u, amount);
-						//System.out.println("Deposit:  $" + aDao.makeDeposit(u, amount));
+						System.out.println("Deposited:  $" + amount);
 						System.out.println("Your new balance is:  $" + aDao.getAccountByUser(u).getCurrentBalance() );
 						System.out.println("************************************");
 						break;
@@ -154,8 +154,10 @@ public class BankApplicationDriver {
 						amount2= Integer.parseInt(in.nextLine());
 											
 						System.out.println("************************************");
+						aDao.withDrawal(u, amount2);
 						System.out.println("Requested Withdrawal Amount:  $" + amount2);
-						System.out.println("We're unable to complete this transaction. Please try again later.");
+						System.out.println("Your new balance is:  $" + aDao.getAccountByUser(u).getCurrentBalance() );
+						//						System.out.println("We're unable to complete this transaction. Please try again later.");
 						System.out.println("************************************");
 						break;
 					case 4://make transfer

@@ -19,6 +19,7 @@ public interface AccountDao {
 
 		void makeDeposit( User u, int depositAmount);
 	
+		void withDrawal( User u, int withDrawalAmount);
 	
 	}
 
