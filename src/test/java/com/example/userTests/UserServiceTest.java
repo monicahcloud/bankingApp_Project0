@@ -1,13 +1,18 @@
 package com.example.userTests;
 
+
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.when;
+
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.any;
 
 import com.example.dao.UserDao;
 import com.example.exceptions.InvalidCredentialsException;
@@ -16,7 +21,7 @@ import com.example.models.User;
 import com.example.services.UserServices;
 
 public class UserServiceTest {
-
+	
 		@InjectMocks
 		public UserServices uServ;
 		
@@ -33,7 +38,7 @@ public class UserServiceTest {
 			User u1 = new User(1, "test", "user", "testuser", "test@email.com", "testpass");
 			User not = new User(0, "test", "user", "testuser", "test@mail.com", "testpass");
 			
-			when(uDao.getUserByUsername(toString())).thenReturn(u1);
+			when(uDao.getUserByUsername(any())).thenReturn(u1);
 			
 			User loggedIn = uServ.login("testuser", "testpass");
 			
@@ -45,7 +50,7 @@ public class UserServiceTest {
 			User u1 = new User(1, "test", "user", "testuser", "test@email.com", "testpass");
 			User not = new User(0, "test", "user", "testuser", "test@mail.com", "testpass");
 			
-			when(uDao.getUserByUsername(toString())).thenReturn(not);
+			when(uDao.getUserByUsername(any())).thenReturn(not);
 			
 			User loggedIn = uServ.login("testuser", "testpass");
 		}
@@ -55,7 +60,7 @@ public class UserServiceTest {
 			User u1 = new User(1, "test", "user", "testuser", "test@email.com", "testpass");
 			User not = new User(1, "test", "user", "testuser", "test@mail.com", "wrongpass");
 			
-			when(uDao.getUserByUsername(toString())).thenReturn(not);
+			when(uDao.getUserByUsername(any())).thenReturn(not);
 			
 			uServ.login("testuser", "testpass");
 		}

@@ -219,3 +219,11 @@
 2021-07-20 23:56:05 INFO  Logging:282 - Successful transfer
 2021-07-21 00:03:44 INFO  Logging:48 - You have successfully logged in.
 2021-07-21 00:05:48 INFO  Logging:48 - You have successfully logged in.
+2021-07-21 00:05:59 INFO  Logging:175 - Deposit has been made.
+2021-07-21 00:06:07 INFO  Logging:175 - Deposit has been made.
+2021-07-21 00:06:14 INFO  Logging:214 - A withdrawal has been made.
+2021-07-21 00:07:19 INFO  Logging:282 - Successful transfer
+2021-07-21 01:11:22 INFO  Logging:48 - You have successfully logged in.
+2021-07-21 01:12:06 WARN  Logging:40 - User does not exist
+2021-07-21 01:12:06 INFO  Logging:48 - You have successfully logged in.
+2021-07-21 01:12:06 WARN  Logging:44 - User tried to login with invalid credentials
