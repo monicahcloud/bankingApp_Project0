@@ -9,7 +9,6 @@ import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 import com.example.logging.Logging;
 import com.example.models.Account;
 import com.example.models.User;
@@ -21,17 +20,17 @@ public class AccountDaoDB implements AccountDao{
 
 	private ConnectionUtil conUtil = ConnectionUtil.getConnectionUtil();
 	
-//We use callable statements to call stored procedures and functions from java
-	
 	@Override
 	public List<Account> getAllAccounts() {
+		
 		List<Account> accountList = new ArrayList<Account>();
+		
 		try {
+			
 			Connection con = conUtil.getConnection();
-			//To create a simple statement we write our query as a string
+		
 			String sql = "SELECT * FROM accounts";
 			
-			//We need to create a statement with this sql string
 			PreparedStatement ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 	
@@ -74,20 +73,24 @@ public class AccountDaoDB implements AccountDao{
 	
 	@Override
 	public List<Account> getUserAccount(User u) {
+		
 		List<Account> accountList = new ArrayList<Account>();
 		
 		try {
+			
 			Connection con = conUtil.getConnection();
+			
 			con.setAutoCommit(false);
+			
 			String sql = "SELECT * FROM accounts WHERE customerid =" + u.getId();
+			
 			CallableStatement cs = con.prepareCall(sql);
-			//We need to create a statement with this sql string
 			PreparedStatement ps = con.prepareStatement(sql);
+			
 			ResultSet rs = ps.executeQuery();
 	
 			while(rs.next()) {
 				accountList.add(new Account(rs.getInt(1), rs.getInt(2), rs.getInt(3), rs.getString(4)));
-			
 			
 			}
 			return accountList;
@@ -142,8 +145,6 @@ try {
 		return null;
 	}
 	
-	
-
 	@Override
 	public void makeDeposit(User u, int depositAmount) {
 		Account a = getAccountByUser(u);
@@ -163,15 +164,25 @@ try {
 			ps.setInt(2, u.getId());
 			ps.execute();
 
-			Logging.logger.warn("Deposit has been made.");
+			String sql1 = "INSERT INTO transactions (account_number, transactions_type, transaction_amount) values (?,?,?)";
+			
+			PreparedStatement ps5 = con.prepareStatement(sql1);
+			ps5.setInt(1, a.getAcctNumber());
+			ps5.setString(2, "Deposit");
+			ps5.setInt(3, depositAmount);
+			
+			ps5.execute();
+			
+			Logging.logger.info("Deposit has been made.");
 		}//end of try
 		catch (SQLException e) {
 			Logging.logger.warn("Account created that already exists in the database");
 		}//end of catch
-			 
-		}//end of else
-			}//end of deposit
+	}//end of else
+}//end of deposit
 
+	
+	
 	@Override
 	public void withDrawal(User u, int withDrawalAmount) {
 		Account a = getAccountByUser(u);
@@ -184,33 +195,40 @@ try {
 		else {
 		try {
 			Connection con = conUtil.getConnection();
-			//To use our functions/procedure we need to turn off autocommit
-			
+		
 			String sql =  "UPDATE accounts set current_balance=? WHERE customerid=?";
 			
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setInt(1,  a.getCurrentBalance() - withDrawalAmount);
 			ps.setInt(2, u.getId());
 			ps.execute();
+			
+			String sql1 = "INSERT INTO transactions (account_number, transactions_type, transaction_amount) values (?,?,?)";
+			
+			PreparedStatement ps5 = con.prepareStatement(sql1);
+			ps5.setInt(1, a.getAcctNumber());
+			ps5.setString(2, "Withdrawal");
+			ps5.setInt(3, withDrawalAmount);
+			
+			ps5.execute();
 
-			Logging.logger.warn("A withdrawal has been made.");					
+			Logging.logger.info("A withdrawal has been made.");					
 		}//end of try
 		
 		catch (SQLException e) {
 			Logging.logger.warn("Account created that already exists in the database");
-		}//end of catch
-		}	 
-		
-			}//end of deposit
+			}//end of catch
+		}// end of try
+	}//end of deposit
 		
 	
 	public void transfer () {
 		
 		System.out.println("Please enter the account number you want to transfer money from: ");
-		int fromAcct = scan.nextInt();
+		int fromAcct = Integer.parseInt(scan.nextLine());
 		
 		System.out.println("Please enter the transfer amount: ");
-		int transferAmount = scan.nextInt();
+		int transferAmount = Integer.parseInt(scan.nextLine());
 		
 		if (transferAmount > 0) {
 			
@@ -231,7 +249,7 @@ try {
 					if(transferAmount <= current_balance) {
 						
 						System.out.println("Please enter the account number you would like to transfer money into.");
-						int toAcct = scan.nextInt();
+						int toAcct = Integer.parseInt(scan.nextLine());
 						
 						String sql2 = "SELECT current_balance FROM accounts WHERE account_number = ?";
 						PreparedStatement ps2 = con.prepareStatement(sql2);
@@ -250,13 +268,13 @@ try {
 							
 							ps3.executeUpdate();
 							
-							String sql4 = "UPDATE accounts SET current_balance =? WHERE account_number = ?";
+							String sql4 = "UPDATE accounts SET current_balance = current_balance + ? WHERE account_number = ?";
 							
 							PreparedStatement ps4 = con.prepareStatement(sql4);
-							ps3.setInt(1, current_balance + transferAmount);
-							ps3.setInt(2, toAcct);
+							ps4.setInt(1, transferAmount);
+							ps4.setInt(2, toAcct);
 							
-							ps3.executeUpdate();
+							ps4.executeUpdate();
 							
 							System.out.println("************************************************************************************");
 							System.out.println("Transfer is successful." );
@@ -264,10 +282,19 @@ try {
 							
 							Logging.logger.info("Successful transfer");
 							
+							String sql5 = "INSERT INTO transactions ( account_number, transactions_type, transaction_amount) values (?,?,?)";
+							
+							PreparedStatement ps5 = con.prepareStatement(sql5);
+							ps5.setInt(1, fromAcct);
+							ps5.setString(2, "Transfer");
+							ps5.setInt(3, transferAmount);
+							
+							ps5.execute();
+													
 						} else {
 							
 							System.out.println("The receiving account number does not exist!");
-						}
+							}
 						} else {
 							System.out.println("The account balance is insufficient!");
 						}
@@ -277,54 +304,11 @@ try {
 			}
 				catch (SQLException e) {
 					Logging.logger.warn("Your transfer could not be processed at this time.");
-				}//end of catch
-			
-		}
-				
-				
-					
-//		public void transfer (User u1, User u2 ,int current_balance) {
-//			Account a1 = getAccountByUser(u1);
-//			Account a2 = getAccountByUser(u2);
-//			
-//			int u1AcctBalance = a1.getCurrentBalance(), previousBalance1 = a1.getCurrentBalance();
-//			int u2AcctBalance = a2.getCurrentBalance(), previousBalance2 = a2.getCurrentBalance();
-//			int balance = 0;
-//			
-//			if( current_balance > 0 && u1AcctBalance >= current_balance) {
-//				u1AcctBalance -= current_balance;
-//				u2AcctBalance += current_balance;
-//				a1.setCurrentBalance(u1AcctBalance);
-//				a2.setCurrentBalance(u2AcctBalance);
-//				
-//				try {
-//					Connection con = conUtil.getConnection();
-//					String sql =  "UPDATE accounts set current_balance=?" + a1.getCurrentBalance() + " WHERE customerid=?" + a1.getCustID();
-//					
-//					PreparedStatement ps = con.prepareStatement(sql);
-//					ps.execute();
-//
-//					
-//					String sql2 =  "UPDATE accounts set current_balance=?" + a2.getCurrentBalance() + " WHERE customerid=?" + a2.getCustID();
-//					
-//					PreparedStatement ps2 = con.prepareStatement(sql);
-//					ps2.execute();
-//					
-//					balance = 1;
-//					
-//					 getAccountByUser(u1);
-//					 getAccountByUser(u2);
-//					 
-//					 		
-//					Logging.logger.warn(a1.getAcctNumber() + ": A transfer withdrawal has been made from " + previousBalance1 +"to :"+ a1.getCurrentBalance() );					
-//					Logging.logger.warn(a2.getAcctNumber() + ": A transfer deposit has been made from " + previousBalance2 +"to :"+ a2.getCurrentBalance() );					
-//					
-//				}//end of try
-//				
-//				catch (SQLException e) {
-//					Logging.logger.warn("Your transfer could not be processed at this time.");
-//				}//end of catch
-//				}	 
+				}
+		
+			}else {
+		           System.out.println("Please try again!");
+			}         this.transfer(); 
 		}
 		
 	}//end of class

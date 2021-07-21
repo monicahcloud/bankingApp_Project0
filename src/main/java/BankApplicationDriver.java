@@ -2,24 +2,22 @@ import java.util.Scanner;
 
 import com.example.dao.AccountDao;
 import com.example.dao.AccountDaoDB;
-import com.example.dao.TransactionDao;
-import com.example.dao.TransactionDaoDB;
 import com.example.dao.UserDao;
 import com.example.dao.UserDaoDB;
 import com.example.models.Account;
 import com.example.models.Employee;
-import com.example.models.Transactions;
 import com.example.models.User;
 import com.example.services.AccountServices;
-import com.example.services.TransactionServices;
 import com.example.services.UserServices;
 
 
 public class BankApplicationDriver {
-	
+	static Account a;
+	static Scanner in = new Scanner(System.in);
+	static Employee emp = new Employee();
 	
 	public static void main(String[] args) {
-		Account a;
+		
 			
 		UserDao uDao = new UserDaoDB();
 		AccountDao aDao = new AccountDaoDB();
@@ -28,8 +26,8 @@ public class BankApplicationDriver {
 	
 		System.out.println(uDao.getAllUsers());
 		System.out.println(aDao.getAllAccounts());
-				
-		Scanner in = new Scanner(System.in);
+	
+		
 		System.out.println("*******************************************************************************");
 		System.out.println();
 		System.out.println("Thank you for trusting First Bank with all of your banking needs.\n");
@@ -80,7 +78,7 @@ public class BankApplicationDriver {
 				System.out.println("You have successfully registered for a new account.");
 				System.out.println();	
 				System.out.println("Your username is " + u.getUsername() + " and your password is " + u.getPassword());
-				//System.out.println("Your starting balance is " + u.getAccount().getBalance());
+				
 				System.out.println();
 				
 			}else {
@@ -133,7 +131,7 @@ public class BankApplicationDriver {
 						System.out.println("************************************");
 						aDao.makeDeposit(u, amount);
 						System.out.println("Deposited:  $" + amount);
-						System.out.println("Your new balance is:  $" + aDao.getAccountByUser(u).getCurrentBalance() );
+						System.out.println("Your current balance is:  $" + aDao.getAccountByUser(u).getCurrentBalance() );
 						System.out.println("************************************");
 						
 						break;
@@ -147,7 +145,7 @@ public class BankApplicationDriver {
 						System.out.println("************************************");
 						aDao.withDrawal(u, amount2);
 						System.out.println("Requested Withdrawal Amount:  $" + amount2);
-						System.out.println("Your new balance is:  $" + aDao.getAccountByUser(u).getCurrentBalance() );
+						System.out.println("Your current balance is:  $" + aDao.getAccountByUser(u).getCurrentBalance() );
 						System.out.println("************************************");
 						
 						break;

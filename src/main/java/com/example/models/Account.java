@@ -1,6 +1,4 @@
 package com.example.models;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Account {
@@ -8,7 +6,6 @@ public class Account {
 	private int custID;
 	private int currentBalance;
 	private String acctType;
-	protected List<Transactions> acctTransactions;
 	
 	public Account() {}
 	
@@ -28,16 +25,6 @@ public Account( int acctNumber, int custID, int currentBalance, String acctType)
 		this.acctType = acctType;
 	}
 	
-public Account(int acctNumber, int custID, int currentBalance, String acctType,
-		List<Transactions> acctTransactions) {
-	super();
-	this.acctNumber = acctNumber;
-	this.custID = custID;
-	this.currentBalance = currentBalance;
-	this.acctType = acctType;
-	this.acctTransactions = acctTransactions;
-}
-
 	public Account(double acctNumber) {
 	this.acctNumber = (int) acctNumber;
 }

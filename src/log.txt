@@ -163,3 +163,42 @@
 2021-07-20 12:51:10 INFO  Logging:52 - You have successfully logged in.
 2021-07-20 12:51:46 INFO  Logging:265 - Successful transfer
 2021-07-20 12:57:33 INFO  Logging:28 - New user has registered
+2021-07-20 12:57:34 INFO  Logging:22 - New account has been created.,
+2021-07-20 12:57:50 INFO  Logging:52 - You have successfully logged in.
+2021-07-20 12:58:31 WARN  Logging:166 - Deposit has been made.
+2021-07-20 12:58:58 WARN  Logging:196 - A withdrawal has been made.
+2021-07-20 13:01:03 INFO  Logging:265 - Successful transfer
+2021-07-20 17:01:00 INFO  Logging:24 - New user has registered
+2021-07-20 17:01:00 INFO  Logging:22 - New account has been created.,
+2021-07-20 17:01:23 INFO  Logging:48 - You have successfully logged in.
+2021-07-20 19:59:47 INFO  Logging:24 - New user has registered
+2021-07-20 19:59:47 INFO  Logging:22 - New account has been created.,
+2021-07-20 20:00:05 INFO  Logging:48 - You have successfully logged in.
+2021-07-20 20:00:20 WARN  Logging:161 - Deposit has been made.
+2021-07-20 20:00:38 WARN  Logging:189 - A withdrawal has been made.
+2021-07-20 20:03:26 INFO  Logging:257 - Successful transfer
+2021-07-20 20:07:32 INFO  Logging:257 - Successful transfer
+2021-07-20 20:11:32 INFO  Logging:24 - New user has registered
+2021-07-20 20:11:32 INFO  Logging:22 - New account has been created.,
+2021-07-20 20:11:44 INFO  Logging:48 - You have successfully logged in.
+2021-07-20 20:12:56 INFO  Logging:257 - Successful transfer
+2021-07-20 20:32:30 INFO  Logging:24 - New user has registered
+2021-07-20 20:32:30 INFO  Logging:22 - New account has been created.,
+2021-07-20 20:32:58 INFO  Logging:48 - You have successfully logged in.
+2021-07-20 20:33:10 WARN  Logging:161 - Deposit has been made.
+2021-07-20 20:36:30 INFO  Logging:24 - New user has registered
+2021-07-20 20:36:31 INFO  Logging:22 - New account has been created.,
+2021-07-20 20:36:47 INFO  Logging:48 - You have successfully logged in.
+2021-07-20 20:38:04 INFO  Logging:257 - Successful transfer
+2021-07-20 20:42:52 INFO  Logging:48 - You have successfully logged in.
+2021-07-20 20:43:23 INFO  Logging:257 - Successful transfer
+2021-07-20 21:30:05 INFO  Logging:24 - New user has registered
+2021-07-20 21:30:05 INFO  Logging:22 - New account has been created.,
+2021-07-20 21:30:40 INFO  Logging:48 - You have successfully logged in.
+2021-07-20 21:30:46 WARN  Logging:213 - Account created that already exists in the database
+2021-07-20 21:32:28 INFO  Logging:277 - Successful transfer
+2021-07-20 21:32:28 WARN  Logging:300 - Your transfer could not be processed at this time.
+2021-07-20 22:02:58 INFO  Logging:48 - You have successfully logged in.
+2021-07-20 22:06:01 INFO  Logging:48 - You have successfully logged in.
+2021-07-20 22:06:49 INFO  Logging:277 - Successful transfer
+2021-07-20 22:20:55 INFO  Logging:48 - You have successfully logged in.

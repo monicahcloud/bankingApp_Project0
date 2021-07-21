@@ -6,7 +6,6 @@ import java.util.Random;
 public class Employee extends User {
 
 	//instance variables 
-	private static final long serialVersionUID = 1L;
 	private int employeeNum;
 	private boolean approval;
 	private List<Employee> employees;

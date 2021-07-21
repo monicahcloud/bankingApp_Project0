@@ -1,10 +1,6 @@
 package com.example.services;
  
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import com.example.models.Transactions;
 import com.example.models.User;
 import com.example.dao.UserDao;
 import com.example.exceptions.InvalidCredentialsException;
