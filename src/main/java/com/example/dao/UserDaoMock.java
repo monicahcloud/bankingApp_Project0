@@ -12,11 +12,7 @@ public class UserDaoMock implements UserDao {
 			private List<User> users = new ArrayList<User>();
 		
 		public UserDaoMock() {
-			/*
-			users.add(new User("Summer", "Smith", "sssumertime"));
-			users.add(new User("Jerry", "Smith", "jsmith"));
-			users.add(new User("Rick", "Sanchez", "ricketyrick"));
-			*/
+		
 		}
 
 		@Override

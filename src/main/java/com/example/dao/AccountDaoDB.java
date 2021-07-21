@@ -52,8 +52,7 @@ public class AccountDaoDB implements AccountDao{
 		
 		try {
 			Connection con = conUtil.getConnection();
-			//To use our functions/procedure we need to turn off autocommit
-			
+						
 			String sql =  "INSERT INTO accounts(account_number, customerid, current_balance, account_type) values"
 					+ "(?,?,?,?)";;
 			PreparedStatement ps = con.prepareStatement(sql);
@@ -155,7 +154,7 @@ try {
 		else {
 		try {
 			Connection con = conUtil.getConnection();
-			//To use our functions/procedure we need to turn off autocommit
+			
 			
 			String sql =  "UPDATE accounts set current_balance=? WHERE customerid=?";
 			
@@ -168,7 +167,7 @@ try {
 			
 			PreparedStatement ps5 = con.prepareStatement(sql1);
 			ps5.setInt(1, a.getAcctNumber());
-			ps5.setString(2, "Deposit");
+			ps5.setString(2, "Deposited:  $ " + depositAmount  + " from " + a.getAcctNumber());
 			ps5.setInt(3, depositAmount);
 			
 			ps5.execute();
@@ -207,7 +206,7 @@ try {
 			
 			PreparedStatement ps5 = con.prepareStatement(sql1);
 			ps5.setInt(1, a.getAcctNumber());
-			ps5.setString(2, "Withdrawal");
+			ps5.setString(2, "Withdrawn: $ " + withDrawalAmount + " from " + a.getAcctNumber());
 			ps5.setInt(3, withDrawalAmount);
 			
 			ps5.execute();
@@ -286,7 +285,16 @@ try {
 							
 							PreparedStatement ps5 = con.prepareStatement(sql5);
 							ps5.setInt(1, fromAcct);
-							ps5.setString(2, "Transfer");
+							ps5.setString(2, "Transfered $" + transferAmount + " to account number: " + toAcct);
+							ps5.setInt(3, transferAmount);
+							
+							ps5.execute();
+							
+							String sql6 = "INSERT INTO transactions ( account_number, transactions_type, transaction_amount) values (?,?,?)";
+							
+							PreparedStatement ps6 = con.prepareStatement(sql6);
+							ps5.setInt(1, toAcct);
+							ps5.setString(2, "Recieved $" + transferAmount + " from account number: " + fromAcct);
 							ps5.setInt(3, transferAmount);
 							
 							ps5.execute();
